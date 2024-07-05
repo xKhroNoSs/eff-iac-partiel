@@ -1,0 +1,13 @@
+[Unit]
+Description=Mon Application Python
+After=network.target
+
+[Service]
+ExecStart=/opt/venv_fastapi/bin/uvicorn main:app --reload
+WorkingDirectory=/var/fastapi/
+Restart=always
+User=fastapi
+Group=fastapi
+
+[Install]
+WantedBy=multi-user.target
