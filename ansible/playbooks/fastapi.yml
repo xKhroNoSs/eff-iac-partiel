@@ -81,6 +81,12 @@
         mode: "644"
         state: link
 
+    # Pas eu le temps de rajouter un check sur le fichier s'il existe
+    - name: Link nginx config file
+      ansible.builtin.file:
+        path: /etc/nginx/sites-available/default
+        state: absent
+
     - name: Reload service nginx, in all cases
       ansible.builtin.systemd_service:
         name: nginx.service
